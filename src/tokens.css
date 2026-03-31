@@ -1,0 +1,210 @@
+/* ============================================================
+   DESIGN SYSTEM — TOKENS
+   Import this file once (via index.css) and use variables
+   anywhere in the project.
+   ============================================================ */
+
+:root {
+
+  /* ── Typography: Font Families ── */
+  --font-display:   'Sofia Sans Extra Condensed', sans-serif;
+  --font-primary:   'TT Hoves Pro', sans-serif;
+  --font-expanded:  'TT Hoves Pro Condensed', sans-serif;
+  --font-signatie:  'Signatie', cursive;
+  --font-mono:      ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  /* ── Typography: Scale ── */
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-md:   1.125rem;   /* 18px */
+  --text-lg:   1.25rem;    /* 20px */
+  --text-xl:   1.5rem;     /* 24px */
+  --text-2xl:  2rem;       /* 32px */
+  --text-3xl:  2.5rem;     /* 40px */
+  --text-4xl:  3rem;       /* 48px */
+  --text-5xl:  3.75rem;    /* 60px */
+  --text-6xl:  4.5rem;     /* 72px */
+
+  /* ── Typography: Weight ── */
+  --weight-extralight: 200;
+  --weight-light:      300;
+  --weight-regular:    400;
+  --weight-medium:     500;
+  --weight-semibold:   600;
+  --weight-bold:       700;
+
+  /* ── Typography: Line Height ── */
+  --leading-none:    1;
+  --leading-tight:   1.25;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose:   2;
+
+  /* ── Typography: Letter Spacing ── */
+  --tracking-tight:  -0.05em;
+  --tracking-snug:   -0.025em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.025em;
+  --tracking-wider:   0.05em;
+  --tracking-widest:  0.1em;
+
+  /* ── Colors: Brand ── */
+  --color-red:       #E4032F;   /* Pacha Red — primary */
+  --color-cream:     #F0E7AE;   /* secondary */
+  --color-white:     #ffffff;
+
+  /* Pacha Red tints & shades */
+  --color-red-50:   #fde8ec;
+  --color-red-100:  #fabfc9;
+  --color-red-200:  #f592a3;
+  --color-red-300:  #f0647c;
+  --color-red-400:  #ec3d5c;
+  --color-red-500:  #E4032F;
+  --color-red-600:  #cc0029;
+  --color-red-700:  #a80022;
+  --color-red-800:  #85001b;
+  --color-red-900:  #620012;
+
+  /* Cream tints & shades */
+  --color-cream-50:  #fdfaf0;
+  --color-cream-100: #faf4d8;
+  --color-cream-200: #F0E7AE;
+  --color-cream-300: #e6d882;
+  --color-cream-400: #d9c655;
+  --color-cream-500: #c9b030;
+  --color-cream-600: #a08b22;
+  --color-cream-700: #786718;
+  --color-cream-800: #504410;
+  --color-cream-900: #282208;
+
+  /* ── Colors: Neutrals ── */
+  --color-black:     #000000;
+
+  --color-gray-50:  #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* ── Colors: Semantic ── */
+  --color-success-light: #d1fae5;
+  --color-success:       #10b981;
+  --color-success-dark:  #065f46;
+
+  --color-warning-light: #fef3c7;
+  --color-warning:       #f59e0b;
+  --color-warning-dark:  #92400e;
+
+  --color-error-light:   #fee2e2;
+  --color-error:         #ef4444;
+  --color-error-dark:    #991b1b;
+
+  --color-info-light:    var(--color-cream-100);
+  --color-info:          var(--color-cream-200);
+  --color-info-dark:     var(--color-cream-600);
+
+  /* ── Colors: UI Roles ── */
+  --bg:              var(--color-gray-50);
+  --bg-surface:      var(--color-white);
+  --bg-subtle:       var(--color-gray-100);
+  --bg-muted:        var(--color-gray-200);
+
+  --text-primary:    var(--color-gray-900);
+  --text-secondary:  var(--color-gray-600);
+  --text-muted:      var(--color-gray-400);
+  --text-inverse:    var(--color-white);
+
+  --border:          var(--color-gray-200);
+  --border-strong:   var(--color-gray-300);
+
+  --link:            var(--color-red);
+  --link-hover:      var(--color-red-700);
+
+  /* ── Spacing Scale ── */
+  --space-0:   0;
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+
+  /* ── Border Radius ── */
+  --radius-none: 0;
+  --radius-sm:   0.25rem;   /*  4px */
+  --radius-md:   0.5rem;    /*  8px */
+  --radius-lg:   0.75rem;   /* 12px */
+  --radius-xl:   1rem;      /* 16px */
+  --radius-2xl:  1.5rem;    /* 24px */
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md:  0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg:  0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
+  --shadow-xl:  0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 10px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.12);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+
+  /* ── Transitions ── */
+  --duration-fast:   100ms;
+  --duration-normal: 200ms;
+  --duration-slow:   350ms;
+  --ease:            cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in:         cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:        cubic-bezier(0, 0, 0.2, 1);
+
+  --transition-fast:   all var(--duration-fast) var(--ease);
+  --transition-normal: all var(--duration-normal) var(--ease);
+  --transition-slow:   all var(--duration-slow) var(--ease);
+
+  /* ── Z-Index ── */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:    10;
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-overlay:   300;
+  --z-modal:     400;
+  --z-toast:     500;
+  --z-tooltip:   600;
+
+  /* ── Breakpoints (for reference in comments — use in media queries) ──
+     --bp-sm:  640px   → small phones landscape
+     --bp-md:  768px   → tablets
+     --bp-lg:  1024px  → small desktops / large tablets
+     --bp-xl:  1280px  → desktops
+     --bp-2xl: 1536px  → wide screens
+  ── */
+
+  /* ── Layout ── */
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-xl:  1280px;
+  --container-2xl: 1536px;
+
+  --container-padding-mobile:  var(--space-4);   /* 16px */
+  --container-padding-tablet:  var(--space-8);   /* 32px */
+  --container-padding-desktop: var(--space-12);  /* 48px */
+
+  /* ── Section Spacing ── */
+  --section-gap-mobile:  var(--space-12);   /* 48px */
+  --section-gap-tablet:  var(--space-16);   /* 64px */
+  --section-gap-desktop: var(--space-24);   /* 96px */
+}
