@@ -32,6 +32,10 @@
   padding: 0;
 }
 
+.navbar__menu {
+  margin-left: 12px;
+}
+
 .navbar__menu-label,
 .navbar__lang-label {
   line-height: 1;
@@ -53,6 +57,31 @@
 .navbar__chevron {
   width: 65%;
   height: 65%;
+}
+
+/* ── Hamburger → X ── */
+.navbar__hamburger-line-1,
+.navbar__hamburger-line-2 {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform var(--duration-normal) var(--ease);
+}
+
+.navbar__menu--open .navbar__hamburger-line-1 {
+  transform: translateY(3px) rotate(45deg);
+}
+
+.navbar__menu--open .navbar__hamburger-line-2 {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+/* ── Menu open — button turns cream ── */
+.navbar__menu--open {
+  color: var(--color-cream);
+}
+
+.navbar__menu--open .navbar__icon-circle {
+  border-color: var(--color-cream);
 }
 
 .navbar__lang-btn--open .navbar__chevron {

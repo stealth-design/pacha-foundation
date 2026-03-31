@@ -1,10 +1,10 @@
 /* ── Menu Panel ── */
 .menu-panel {
   position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
+  top: clamp(0.75rem, 2vh, 1.5rem);
+  left: clamp(1.25rem, 4vw, 3rem);
   width: clamp(300px, 38vw, 540px);
-  height: calc(100svh - 1.5rem);
+  height: calc(100svh - clamp(0.75rem, 2vh, 1.5rem) - clamp(0.75rem, 2vh, 1.5rem));
   background: var(--color-red);
   border-radius: var(--radius-2xl);
   z-index: 99;
@@ -71,10 +71,9 @@
 /* ── Mobile ── */
 @media (max-width: 767px) {
   .menu-panel {
-    width: calc(100vw - 1.5rem);
-    height: calc(100svh - 1.5rem);
-    top: 0.75rem;
-    left: 0.75rem;
+    width: calc(100vw - clamp(1.25rem, 4vw, 3rem) * 2);
+    top: clamp(0.75rem, 2vh, 1.5rem);
+    left: clamp(1.25rem, 4vw, 3rem);
   }
 
   .menu-panel__link {
