@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npx create-react-app:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(npm install:*)"
     ]
   }
 }

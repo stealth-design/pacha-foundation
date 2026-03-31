@@ -1,0 +1,14 @@
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: #ffffff;
+  clip-path: circle(0% at var(--tx) var(--ty));
+  animation: expand-circle 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes expand-circle {
+  0%   { clip-path: circle(0% at var(--tx) var(--ty)); }
+  100% { clip-path: circle(180% at var(--tx) var(--ty)); }
+}
