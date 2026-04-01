@@ -1,0 +1,24 @@
+/* ── Primary Button ── */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 3rem;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: var(--text-md);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.btn--primary {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+

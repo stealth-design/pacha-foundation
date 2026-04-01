@@ -136,6 +136,9 @@
 .navbar__lang-btn--open .navbar__icon-circle {
   border-color: var(--color-cream);
   color: var(--color-cream);
+  transition:
+    border-color var(--duration-normal) var(--ease),
+    color var(--duration-normal) var(--ease);
 }
 
 .navbar__lang-dropdown {
@@ -148,14 +151,19 @@
   list-style: none;
   opacity: 0;
   visibility: hidden;
+  transform: translateY(-4px);
+  pointer-events: none;
   transition:
     opacity var(--duration-normal) var(--ease),
-    visibility var(--duration-normal) var(--ease);
+    visibility var(--duration-normal) var(--ease),
+    transform var(--duration-normal) var(--ease);
 }
 
 .navbar__lang-dropdown--open {
   opacity: 1;
   visibility: visible;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .navbar__lang-option {
@@ -198,5 +206,19 @@
 @media (max-width: 767px) {
   .navbar {
     padding-inline: 1.25rem;
+    padding-top: 0;
+  }
+
+  /* When menu is open, lift navbar above the panel so the close button stays on top */
+  .navbar--menu-open {
+    z-index: 300;
+  }
+
+  /* Hide logo and lang switcher while panel is covering the screen */
+  .navbar--menu-open .navbar__logo-link,
+  .navbar--menu-open .navbar__lang {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-normal) var(--ease);
   }
 }

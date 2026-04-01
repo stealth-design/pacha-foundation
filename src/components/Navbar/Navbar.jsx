@@ -1,19 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import MenuPanel from '../MenuPanel/MenuPanel'
 import './Navbar.css'
 
 const engLogo = '/eng-logo.png'
 
-export default function Navbar() {
+export default function Navbar({ basePath = '', menuVideo }) {
   const [lang, setLang] = useState('ENG')
   const [langOpen, setLangOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
 
   const languages = ['ENG', 'ESP']
 
   return (
     <>
-      <nav className="navbar">
+      <nav className={`navbar${menuOpen ? ' navbar--menu-open' : ''}`}>
 
         {/* Left — Menu */}
         <button
@@ -67,7 +72,7 @@ export default function Navbar() {
 
       </nav>
 
-      <MenuPanel isOpen={menuOpen} />
+      <MenuPanel isOpen={menuOpen} basePath={basePath} video={menuVideo} />
     </>
   )
 }
