@@ -45,9 +45,25 @@
 }
 
 /* Team photo pill — fixed aspect ratio, full text height */
+.ibiza-hero__img-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
 .ibiza-hero__pill--img {
   aspect-ratio: 4 / 2;
   height: 200px;
+}
+
+.ibiza-hero__img-star {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(10%, -30%);
+  height: 100px;
+  width: auto;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Row 1 spreads pill + text across full width */
@@ -69,10 +85,26 @@
 }
 
 /* Video pill — fills remaining width on row 2 */
-.ibiza-hero__pill--video {
+.ibiza-hero__video-wrap {
   flex: 1;
+  position: relative;
+}
+
+.ibiza-hero__pill--video {
+  width: 100%;
   height: 200px;
   background: white;
+}
+
+.ibiza-hero__video-cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-30%, -50%);
+  height: 100px;
+  width: auto;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .ibiza-hero__pill--video video {
@@ -82,8 +114,78 @@
   display: block;
 }
 
+/* ── Cherry ── */
+.ibiza-hero__cherry-future {
+  display: contents;
+}
+
+.ibiza-hero__cherry--mobile {
+  display: none;
+}
+
+.ibiza-hero__cherry {
+  height: 8rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* ── Animations ── */
+@keyframes ibiza-slide-from-right {
+  from { transform: translateX(120%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes ibiza-slide-from-left {
+  from { transform: translateX(-120%); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+@keyframes ibiza-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.ibiza-hero__row--slide-right {
+  animation: ibiza-slide-from-right 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ibiza-hero__row--slide-left {
+  animation: ibiza-slide-from-left 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.ibiza-hero__row--fade-in {
+  animation: ibiza-fade-in 0.8s ease 2s both;
+}
+
 /* ── Mobile ── */
 @media (max-width: 1200px) {
+  .ibiza-hero__video-cloud {
+    width: 150px;
+    height: auto;
+    transform: translate(-10%, -50%);
+
+  }
+
+  .ibiza-hero__img-star {
+    transform: translate(10%, -50%);
+    height: 80px;
+    width: auto;
+  }
+
+  .ibiza-hero__cherry--desktop {
+    display: none;
+  }
+
+  .ibiza-hero__cherry--mobile {
+    display: block;
+  }
+
+  .ibiza-hero__cherry-future {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 1.5rem);
+  }
+
   .ibiza-hero {
     height: auto;
     align-items: flex-start;
@@ -127,5 +229,9 @@
     flex: none;
     width: 100%;
     height: 130px;
+  }
+
+  .ibiza-hero__cherry {
+    height: 4rem;
   }
 }

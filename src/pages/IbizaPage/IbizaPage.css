@@ -285,7 +285,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: .5rem;
     border-top: 1px solid var(--color-gray-200);
     padding: clamp(0.75rem, 2vh, 1.25rem) 0;
   }

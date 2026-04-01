@@ -2,6 +2,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import IbizaHero from '../../blocks/IbizaHero/IbizaHero'
 import IbizaInitiatives from '../../blocks/IbizaInitiatives/IbizaInitiatives'
+import IbizaStats from '../../blocks/IbizaStats/IbizaStats'
 import Button from '../../components/Button/Button'
 import './IbizaPage.css'
 
@@ -36,47 +37,7 @@ export default function IbizaPage() {
         </div>
       </section>
 
-      {/* Desktop stats — 3 columns */}
-      <section className="ibiza-section ibiza-stats ibiza-stats--desktop">
-        <div className="ibiza-stats__col ibiza-stats__col--numbers">
-          <div className="ibiza-stats__row"><span className="ibiza-stats__num">430%+</span></div>
-          <div className="ibiza-stats__row"><span className="ibiza-stats__num">35+</span></div>
-          <div className="ibiza-stats__row"><span className="ibiza-stats__num">€500K</span></div>
-          <div className="ibiza-stats__row"><span className="ibiza-stats__num">100%</span></div>
-        </div>
-        <div className="ibiza-stats__col ibiza-stats__col--bar">
-          <span className="ibiza-stats__bar-title">Impact</span>
-        </div>
-        <div className="ibiza-stats__col ibiza-stats__col--labels">
-          <div className="ibiza-stats__row"><span className="ibiza-stats__label">INCREASE IN 2025 BUDGET</span></div>
-          <div className="ibiza-stats__row"><span className="ibiza-stats__label">IBIZA INITIATIVES</span></div>
-          <div className="ibiza-stats__row"><span className="ibiza-stats__label">COMMITTED IN 2025</span></div>
-          <div className="ibiza-stats__row"><span className="ibiza-stats__label">FUNDING IN IBIZA</span></div>
-        </div>
-      </section>
-
-      {/* Mobile stats — bar top, paired rows */}
-      <section className="ibiza-section ibiza-stats ibiza-stats--mobile">
-        <div className="ibiza-stats__bar">
-          <span className="ibiza-stats__bar-title">Impact</span>
-        </div>
-        <div className="ibiza-stats__row">
-          <span className="ibiza-stats__num">430%+</span>
-          <span className="ibiza-stats__label">INCREASE IN 2025 BUDGET</span>
-        </div>
-        <div className="ibiza-stats__row">
-          <span className="ibiza-stats__num">35+</span>
-          <span className="ibiza-stats__label">IBIZA INITIATIVES</span>
-        </div>
-        <div className="ibiza-stats__row">
-          <span className="ibiza-stats__num">€500K</span>
-          <span className="ibiza-stats__label">COMMITTED IN 2025</span>
-        </div>
-        <div className="ibiza-stats__row">
-          <span className="ibiza-stats__num">100%</span>
-          <span className="ibiza-stats__label">FUNDING IN IBIZA</span>
-        </div>
-      </section>
+      <IbizaStats />
 
       <IbizaInitiatives />
 
@@ -94,7 +55,6 @@ export default function IbizaPage() {
             { outlet: 'Diario de Ibiza', headline: 'Pacha Foundation Announces Record €500K Commitment for 2025' },
             { outlet: 'El País', headline: 'How FIVE Holdings Is Reshaping Social Impact in the Balearics' },
             { outlet: 'Ibiza Global Radio', headline: "Youth, Sport and Sea: Inside the Foundation's Expanded Vision" },
-            { outlet: 'Time Out Ibiza', headline: "The Cultural Force Behind Ibiza's Thriving Arts Scene" },
             { outlet: 'Forbes España', headline: 'Kabir Mulchandani on Purpose-Led Growth and Island Stewardship' },
           ].map((item) => (
             <li key={item.outlet} className="ibiza-press__item">

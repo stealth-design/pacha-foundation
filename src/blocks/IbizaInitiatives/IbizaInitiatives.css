@@ -114,10 +114,9 @@
   text-align: right;
   font-family: var(--font-primary);
   font-size: clamp(0.875rem, 1.5vw, 1.25rem);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-white);
   margin: 0 0 clamp(1.5rem, 3vh, 2.5rem) 0;
-  opacity: 0.85;
 }
 
 /* ── Images ── */

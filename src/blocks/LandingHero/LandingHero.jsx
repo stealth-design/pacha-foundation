@@ -33,7 +33,7 @@ export default function LandingHero() {
           <div className="landing-hero__image-wrap">
             <img src={heroHand} alt="" className="landing-hero__image" />
           </div>
-          <span className="landing-hero__script" aria-hidden="true">Impact</span>
+          {/* <span className="landing-hero__script" aria-hidden="true">Impact</span> */}
         </div>
 
         <p className="landing-hero__subtitle">

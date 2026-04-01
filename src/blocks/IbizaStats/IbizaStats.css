@@ -1,0 +1,9 @@
+/* Labels start hidden, fade in when --visible is added */
+.ibiza-stats__label {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.ibiza-stats__label--visible {
+  opacity: 1;
+}
