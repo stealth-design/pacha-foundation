@@ -114,7 +114,7 @@
   color: var(--color-red);
   font-family: var(--font-primary);
   font-weight: var(--weight-semibold);
-  font-size: clamp(1.8rem, 5vw, 5rem);
+  font-size: clamp(1.2rem, 3vw, 3rem);
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.04em;
@@ -149,6 +149,8 @@
 .landing-hero__location-label {
   position: relative;
   z-index: 20;
+  text-align: center;
+  line-height: .9;
 }
 
 .landing-hero__location-btn:hover .landing-hero__location-circle {
@@ -215,6 +217,6 @@
   .landing-hero__location-btn {
     width: clamp(150px, 42vw, 210px);
     height: clamp(150px, 42vw, 210px);
-    font-size: clamp(3rem, 14vw, 4.5rem);
+    font-size: clamp(2rem, 10vw, 3rem);
   }
 }

@@ -3,56 +3,30 @@ import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import './ImpactPage.css'
 
-const PILLARS = [
-  {
-    number: '01',
-    title: 'Community Welfare',
-    description:
-      'Supporting local families, elderly care programmes, and social inclusion initiatives across the island. From food security drives to mental health outreach, we stand with the people of Ibiza.',
-    tag: 'Social',
-  },
-  {
-    number: '02',
-    title: 'Cultural Arts',
-    description:
-      'Preserving the rich artistic heritage of the Balearics while empowering emerging local talent. We fund exhibitions, residencies, and public art installations year-round.',
-    tag: 'Culture',
-  },
-  {
-    number: '03',
-    title: 'Youth & Sport',
-    description:
-      'Providing pathways for young people through structured sports programmes, scholarships, and mentorship. Every child deserves the tools to reach their potential.',
-    tag: 'Youth',
-  },
-  {
-    number: '04',
-    title: 'Environmental Conservation',
-    description:
-      'Leading land and sea conservation projects — from Posidonia meadow restoration to coastal clean-ups. We are committed to leaving Ibiza better than we found it.',
-    tag: 'Environment',
-  },
-]
+
 
 const STORIES = [
   {
-    year: '2023',
-    headline: 'Posidonia Restoration Project Launched',
-    body: 'In partnership with marine biologists and local fishermen, the Foundation initiated the largest seagrass restoration effort in Ibiza\'s history — covering over 40 hectares of seabed.',
-    image: '/about.png',
+    headline: 'Increase In 2025 Budget',
+    body: 'Under President Kabir Mulchandani, The Pacha Foundation has grown significantly since FIVE Holdings’ 2023 acquisition, with funding up 430%. In 2025, it supported 14 social welfare initiatives (€94,000+), funded cultural arts programmes including Ibiza port music events (€126,000+), invested in sports initiatives like marathons and youth programmes (€128,000+), and contributed over €134,000 to environmental efforts focused on marine conservation, biodiversity, and recycling.',
+    image: '/impact1.jpg',
   },
   {
-    year: '2024',
-    headline: '500 Scholarships Awarded to Island Youth',
-    body: 'Through our education fund, five hundred young people from Ibiza and Formentera received grants to pursue higher education and vocational training both locally and abroad.',
-    image: '/hero-pill.png',
+    headline: 'Ibiza Initiatives',
+    body: 'In 2025, The Pacha Foundation has expanded its impact by renewing support for key initiatives and launching new projects that respond to Ibiza’s evolving needs. With a record €500,000 budget funding over 35 programmes, the Foundation has deepened its commitment to Social Welfare, Cultural Arts, Sports, and Environmental stewardship, focusing its support on the most impactful projects, aligning with community leadership and local and national priorities.',
+    image: '/impact2.png',
   },
   {
-    year: '2025',
-    headline: 'Record €500K Budget Commitment',
-    body: 'Following FIVE Holdings\' strategic investment, the Foundation announced a 430% increase in its annual budget — enabling unprecedented scale across all four pillars of impact.',
-    image: '/about.png',
+    headline: 'Committed In 2025',
+    body: 'Originally a grassroots initiative within The Pacha Group, the Pacha Foundation now manages a €500,000 portfolio in 2025—up 5% year-on-year and 430% since FIVE Holdings’ acquisition. This growth highlights the link between the Group’s commercial success and its commitment to social impact, supporting social welfare, culture, sports, and environmental initiatives across Ibiza.',
+    image: '/impact3.png',
   },
+
+  {
+    headline: 'Funding To Ibiza',
+    body: 'While many foundations pursue global ambitions, often struggling to achieve lasting impact, The Pacha Foundation remains steadfast in its mission to exclusively serve the Island of Ibiza. This focused vision stems from our deep gratitude for over 50 years of success, rooted in the vibrant and resilient communities that thrive alongside the Pacha Brand. In 2025, our €500,000 budget, reflecting a 5% year-on-year increase, fuels targeted initiatives in social welfare, cultural arts, sports, and environmental stewardship, ensuring measurable and enduring contributions to Ibiza’s legacy and its people.',
+    image: '/impact4.png',
+  }
 ]
 
 export default function ImpactPage() {
@@ -60,6 +34,15 @@ export default function ImpactPage() {
   const textRef = useRef(null)
   const drinkRef = useRef(null)
   const fanRef = useRef(null)
+
+  // Clear load animations once done so JS parallax can take over
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (drinkRef.current) drinkRef.current.style.animation = 'none'
+      if (fanRef.current)   fanRef.current.style.animation   = 'none'
+    }, 1400)
+    return () => clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     function onScroll() {
@@ -107,7 +90,6 @@ export default function ImpactPage() {
                 <span className="impact-story__year">{s.year}</span>
                 <h3 className="impact-story__headline">{s.headline}</h3>
                 <p className="impact-story__body">{s.body}</p>
-                <a href="#" className="impact-story__link">Read full story →</a>
               </div>
             </div>
           ))}

@@ -36,10 +36,10 @@ export default function LandingHero() {
           {/* <span className="landing-hero__script" aria-hidden="true">Impact</span> */}
         </div>
 
-        <p className="landing-hero__subtitle">
+        {/* <p className="landing-hero__subtitle">
           Advancing healthcare, youth development, and the arts,
           while preserving cultural heritage
-        </p>
+        </p> */}
 
         <div className="landing-hero__locations">
           <a
@@ -57,7 +57,7 @@ export default function LandingHero() {
                 playsInline
               />
             </div>
-            <span className="landing-hero__location-label">IBZ</span>
+            <span className="landing-hero__location-label">IBIZA</span>
           </a>
           <a
             href="/newyork"
@@ -74,7 +74,7 @@ export default function LandingHero() {
                 playsInline
               />
             </div>
-            <span className="landing-hero__location-label">NY</span>
+            <span className="landing-hero__location-label">NEW YORK</span>
           </a>
         </div>
 

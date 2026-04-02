@@ -21,6 +21,16 @@
   text-align: center;
 }
 
+@keyframes impact-drink-in {
+  from { transform: translateY(calc(20% + 200px)) rotate(-27deg); opacity: 0; }
+  to   { transform: translateY(20%) rotate(-27deg); opacity: 1; }
+}
+
+@keyframes impact-fan-in {
+  from { transform: translateY(calc(-80% + 200px)) rotate(50deg); opacity: 0; }
+  to   { transform: translateY(-80%) rotate(50deg); opacity: 1; }
+}
+
 .impact-hero__drink {
   position: absolute;
   height: clamp(80px, 18vw, 260px);
@@ -32,6 +42,7 @@
   pointer-events: none;
   z-index: 4;
   will-change: transform;
+  animation: impact-drink-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 
 .impact-hero__fan {
@@ -44,6 +55,7 @@
   pointer-events: none;
   z-index: 2;
   will-change: transform;
+  animation: impact-fan-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }
 
 .impact-hero__big {
@@ -168,7 +180,7 @@
 .impact-stories__desc {
   font-family: var(--font-primary);
   font-size: clamp(0.875rem, 1.4vw, 1.125rem);
-  color: var(--color-red);
+  color: var(--color-black);
   line-height: var(--leading-relaxed);
   margin-bottom: 2rem !important;
   font-weight: 300;
@@ -232,6 +244,7 @@
   color: var(--color-gray-900);
   line-height: var(--leading-tight);
   margin-bottom: 1rem;
+  color: var(--color-red);
 }
 
 .impact-story__body {
