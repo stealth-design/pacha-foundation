@@ -325,14 +325,14 @@
   }
 
   .ibiza-hero__pill--img {
-    height: clamp(2rem, 11vw, 4rem);
+    height: clamp(5rem, 22vw, 9rem);
     flex-shrink: 0;
   }
 
   .ibiza-hero__pill--video {
     flex: none;
     width: 100%;
-    height: clamp(2rem, 11vw, 4rem);
+    height: clamp(5rem, 22vw, 9rem);
   }
 
   .ibiza-hero__cherry {
@@ -340,7 +340,7 @@
   }
 
   .ibiza-hero__pill--row3 {
-    height: clamp(2rem, 11vw, 4rem);
+    height: clamp(5rem, 22vw, 9rem);
   }
 
   .ibiza-hero__row3-cherry {

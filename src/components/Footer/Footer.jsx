@@ -1,6 +1,6 @@
 import './Footer.css'
 
-const NAV_ITEMS = ['Impact', 'Initiatives', 'Press', 'About', 'Connect']
+const NAV_ITEMS = ['Impact', 'Initiatives', 'About', 'Press', 'Connect']
 
 export default function Footer({ bgImage, headline, basePath = '' }) {
   return (
