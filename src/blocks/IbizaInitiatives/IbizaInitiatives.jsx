@@ -49,7 +49,7 @@ export default function IbizaInitiatives() {
       <div className="ibiza-initiatives__images">
         {categories[active].images.map((src, i) => (
           <div key={i} className="ibiza-initiatives__img-wrap">
-            <img src={src} alt="" />
+            <img src={src} alt="" loading="lazy" />
           </div>
         ))}
       </div>

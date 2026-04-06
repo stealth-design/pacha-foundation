@@ -6,7 +6,6 @@ import IbizaInitiatives from '../../blocks/IbizaInitiatives/IbizaInitiatives'
 import IbizaStats from '../../blocks/IbizaStats/IbizaStats'
 import IbizaImpactCards from '../../blocks/IbizaImpactCards/IbizaImpactCards'
 import Button from '../../components/Button/Button'
-import Preloader from '../../components/Preloader/Preloader'
 import './IbizaPage.css'
 
 const PRESS_ITEMS = [
@@ -56,7 +55,7 @@ function PressItem({ item }) {
           className="ibiza-press__preview"
           style={{ left: pos.x + 20, top: pos.y - 80 }}
         >
-          <img src={item.screenshot} alt={`${item.outlet} screenshot`} />
+          <img src={item.screenshot} alt={`${item.outlet} screenshot`} loading="lazy" />
         </div>
       )}
     </li>
@@ -64,11 +63,8 @@ function PressItem({ item }) {
 }
 
 export default function IbizaPage() {
-  const [preloaded, setPreloaded] = useState(false)
-
   return (
     <div className="ibiza-page">
-      {!preloaded && <Preloader onDone={() => setPreloaded(true)} />}
       <Navbar basePath="/ibiza" menuVideo="/ibiza-bg-video.mp4" />
 
       <IbizaHero
@@ -85,8 +81,8 @@ export default function IbizaPage() {
       <section className="ibiza-section ibiza-about ibiza-section--cream">
         <div className="ibiza-about__content">
           <h2>ABOUT</h2>
-          <p>Established in 2018 as a private non-profit, The Pacha Foundation builds on <span className="ibiza-about__hover-word">The Pacha Group's legacy<img src="/pachagroup-pill.png" className="ibiza-about__hover-pill" alt="" /></span> of social impact. </p>
-          <p>Following <span className="ibiza-about__hover-word">FIVE Holdings'<img src="/fiveholdings-pill.png" className="ibiza-about__hover-pill" alt="" /></span> 2023 acquisition of The Pacha Group , <span className="ibiza-about__hover-word">President Kabir Mulchandani<img src="/km-pill.png" className="ibiza-about__hover-pill" alt="" /></span> expanded the Foundation's vision and reach. The Foundation advances <span className="ibiza-about__hover-word">healthcare<img src="/healthcare-pill.png" className="ibiza-about__hover-pill" alt="" /></span>, <span className="ibiza-about__hover-word">youth development<img src="/youth-pill.png" className="ibiza-about__hover-pill" alt="" /></span>, and the <span className="ibiza-about__hover-word">arts<img src="/arts-pill.png" className="ibiza-about__hover-pill" alt="" /></span>, while preserving <span className="ibiza-about__hover-word">cultural heritage<img src="/culture-pill.png" className="ibiza-about__hover-pill" alt="" /></span>. It also promotes resilience through sport, community programmes, and environmental leadership across land and sea. </p>
+          <p>Established in 2018 as a private non-profit, The Pacha Foundation builds on <span className="ibiza-about__hover-word">The Pacha Group's legacy<img src="/pachagroup-pill.png" className="ibiza-about__hover-pill" alt="" loading="lazy" /></span> of social impact. </p>
+          <p>Following <span className="ibiza-about__hover-word">FIVE Holdings'<img src="/fiveholdings-pill.png" className="ibiza-about__hover-pill" alt="" loading="lazy" /></span> 2023 acquisition of The Pacha Group , <span className="ibiza-about__hover-word">President Kabir Mulchandani<img src="/km-pill.png" className="ibiza-about__hover-pill" alt="" loading="lazy" /></span> expanded the Foundation's vision and reach. The Foundation advances <span className="ibiza-about__hover-word">healthcare<img src="/healthcare-pill.png" className="ibiza-about__hover-pill" alt="" loading="lazy" /></span>, <span className="ibiza-about__hover-word">youth development<img src="/youth-pill.png" className="ibiza-about__hover-pill" alt="" loading="lazy" /></span>, and the <span className="ibiza-about__hover-word">arts<img src="/arts-pill.png" className="ibiza-about__hover-pill" alt="" loading="lazy" /></span>, while preserving <span className="ibiza-about__hover-word">cultural heritage<img src="/culture-pill.png" className="ibiza-about__hover-pill" alt="" loading="lazy" /></span>. It also promotes resilience through sport, community programmes, and environmental leadership across land and sea. </p>
           {/* <Button href="/ibiza/about" className="ibiza-about__btn">
             <img src="/button-cloud.png" className="ibiza-about__btn-cloud" alt="" />
             <span className="ibiza-about__btn-label">Know More</span>
@@ -94,7 +90,7 @@ export default function IbizaPage() {
           </Button> */}
         </div>
         <div className="ibiza-about__image">
-          <img src="/about.png" alt="" />
+          <img src="/about.png" alt="" loading="lazy" />
         </div>
       </section>
 
