@@ -389,14 +389,35 @@
 }
 
 .ibiza-press__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
   padding: clamp(1rem, 2.5vh, 1.75rem) 0;
   border-bottom: 1px solid var(--color-gray-200);
   cursor: pointer;
   transition: background 0.2s, padding 0.2s;
+  position: relative;
+  overflow: visible;
+}
+
+.ibiza-press__preview {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  width: 260px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  animation: press-preview-in 0.15s ease;
+}
+
+.ibiza-press__preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@keyframes press-preview-in {
+  from { opacity: 0; transform: scale(0.95) translateY(4px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .ibiza-press__item:hover {
@@ -415,6 +436,16 @@
 .ibiza-press__item:hover .ibiza-press__arrow-btn {
   border-color: var(--color-white);
   color: var(--color-white);
+}
+
+.ibiza-press__item-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
 .ibiza-press__item-content {

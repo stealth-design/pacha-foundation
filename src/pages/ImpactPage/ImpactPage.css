@@ -4,92 +4,65 @@
 
 /* ── Hero ── */
 .impact-hero {
-  min-height: 100svh;
-  background: var(--color-cream);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(6rem, 12vh, 10rem) clamp(2rem, 8vw, 6rem);
-  text-align: center;
-  gap: clamp(1.5rem, 3vh, 2.5rem);
-  overflow: hidden;
-}
-
-.impact-hero__text {
   position: relative;
-  text-align: center;
+  width: 100%;
+  height: 100svh;
+  background: #5FC4E0;   /* sky blue */
+  overflow: hidden;
+  /* layer 1 — sky is the lowest layer */
 }
 
-@keyframes impact-drink-in {
-  from { transform: translateY(calc(20% + 200px)) rotate(-27deg); opacity: 0; }
-  to   { transform: translateY(20%) rotate(-27deg); opacity: 1; }
+/* ── IMPACT text — layer 2 ── */
+@keyframes impact-text-up {
+  from { transform: translateX(-50%) translateY(68vh); }
+  to   { transform: translateX(-50%) translateY(0);    }
 }
 
-@keyframes impact-fan-in {
-  from { transform: translateY(calc(-80% + 200px)) rotate(50deg); opacity: 0; }
-  to   { transform: translateY(-80%) rotate(50deg); opacity: 1; }
-}
-
-.impact-hero__drink {
+.impact-hero__impact {
   position: absolute;
-  height: clamp(80px, 18vw, 260px);
-  width: auto;
-  bottom: 0;
-  left: -13%;
-  top: 25%;
-  transform: translateY(20%) rotate(-27deg);
-  pointer-events: none;
-  z-index: 4;
-  will-change: transform;
-  animation: impact-drink-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
-}
-
-.impact-hero__fan {
-  position: absolute;
-  height: clamp(60px, 12vw, 160px);
-  width: auto;
-  top: 68%;
-  right: -12%;
-  transform: translateY(-80%) rotate(50deg);
-  pointer-events: none;
   z-index: 2;
-  will-change: transform;
-  animation: impact-fan-in 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
-}
-
-.impact-hero__big {
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  white-space: nowrap;
+  margin: 0;
   font-family: var(--font-primary);
   font-weight: 900;
-  font-size: clamp(3rem, 8vw, 8rem);
-  line-height: 0.95;
-  color: var(--color-red);
+  font-size: clamp(6rem, 17vw, 15rem);
+  line-height: 1;
+  color: var(--color-white);
   text-transform: uppercase;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  will-change: transform;
+  animation: impact-text-up 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 
-.impact-hero__line1 {
-  position: relative;
-  z-index: 1;
+/* ── Clouds — layer 3 ── */
+@keyframes impact-cloud-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.impact-hero__line2 {
-  position: relative;
-  z-index: 3;
+.impact-hero__cloud {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  will-change: transform;
+  animation: impact-cloud-in 0.8s ease 1s both;
 }
 
-.impact-hero__small {
-  font-family: var(--font-primary);
-  font-weight: 500;
-  font-size: clamp(0.75rem, 1.5vw, 1.5rem);
-  line-height: 1.4;
-  color: var(--color-red);
-  text-transform: uppercase;
-  margin: 1rem auto;
-  text-align: center;
+/* ── Runners image — layer 4 (foreground) ── */
+.impact-hero__image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 78%;
+  object-fit: cover;
+  object-position: top center;
+  z-index: 4;
+  will-change: transform;
+  pointer-events: none;
 }
 
 /* ── Pillars ── */
@@ -179,11 +152,11 @@
 
 .impact-stories__desc {
   font-family: var(--font-primary);
-  font-size: clamp(0.875rem, 1.4vw, 1.125rem);
-  color: var(--color-black);
+  font-size: clamp(0.875rem, 1.5vw, 1.5rem);
+  color: var(--color-red);
   line-height: var(--leading-relaxed);
   margin-bottom: 2rem !important;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .impact-stories__list {
@@ -341,23 +314,13 @@
 /* ── Mobile ── */
 @media (max-width: 767px) {
 
-  .impact-hero__drink {
-    left: -10%;
+  .impact-hero__impact {
+    font-size: clamp(3rem, 18vw, 6rem);
+    top: 22%;
   }
 
-  .impact-hero__fan {
-    top: 50%;
-    right: -10%;
-    transform: translateY(-50%) rotate(50deg);
-  }
-
-  .impact-hero {
-    min-height: unset;
-    padding-top: 150px;
-  }
-
-  .impact-hero__big {
-    font-size: 2.5rem;
+  .impact-hero__image {
+    height: 70%;
   }
 
   .impact-pillars__header {

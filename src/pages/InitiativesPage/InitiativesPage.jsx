@@ -89,7 +89,7 @@ function StoryCard({ story }) {
 function StoriesSection() {
   return (
     <section className="ibiza-section initiatives-stories">
-      <h2 className="initiatives-stories__title">INITIATIVES</h2>
+      {/* <h2 className="initiatives-stories__title">INITIATIVES</h2> */}
       <p className="initiatives-stories__desc">In 2025, The Pacha Foundation expanded its impact with a €500,000 budget (up 5% year-on-year), supporting 35+ programmes across key areas: Social Welfare (€94,000+), Cultural Arts (€126,000+), Sports (€128,000+), and Environmental Stewardship (€134,000+). Through these initiatives, the Foundation continues to strengthen Ibiza's communities and preserve its vibrant legacy.</p>
       <div className="initiatives-stories__list">
         {STORIES.map((s, i) => (
@@ -100,19 +100,30 @@ function StoriesSection() {
   )
 }
 
-export default function InitiativesPage() {
-  const heroRef = useRef(null)
-  const textRef = useRef(null)
-  const orangeRef = useRef(null)
-  const capRef = useRef(null)
+const CLOUDS = [
+  { top: '8%',  left: '-2%',  width: '22vw', z: 3 },
+  { top: '4%',  left: '28%',  width: '16vw', z: 3 },
+  { top: '2%',  right: '5%',  width: '20vw', z: 3 },
+  { top: '22%', left: '12%',  width: '12vw', z: 3 },
+]
 
-  // Clear animations exactly when they finish so JS parallax takes over with no gap
+export default function InitiativesPage() {
+  const heroRef      = useRef(null)
+  const titleRef     = useRef(null)
+  const imageRef     = useRef(null)
+  const cloudRefs    = useRef([])
+
   useEffect(() => {
-    const orange = orangeRef.current
-    const cap    = capRef.current
-    const clearAnim = (el) => { el.style.animation = 'none' }
-    orange?.addEventListener('animationend', () => clearAnim(orange))
-    cap?.addEventListener('animationend',    () => clearAnim(cap))
+    const t = setTimeout(() => {
+      if (titleRef.current) {
+        titleRef.current.style.animation = 'none'
+        titleRef.current.style.transform = 'translateX(-50%) translateY(0)'
+      }
+      cloudRefs.current.forEach(el => {
+        if (el) { el.style.animation = 'none'; el.style.opacity = '1' }
+      })
+    }, 1600)
+    return () => clearTimeout(t)
   }, [])
 
   useEffect(() => {
@@ -120,9 +131,13 @@ export default function InitiativesPage() {
       if (!heroRef.current) return
       const y = window.scrollY
       if (y > heroRef.current.offsetHeight) return
-      if (textRef.current)   textRef.current.style.transform   = `translateY(${y * 0.3}px)`
-      if (orangeRef.current) orangeRef.current.style.transform = `translateY(${y * 0.5}px) rotate(-15deg)`
-      if (capRef.current)    capRef.current.style.transform    = `translateY(${y * 0.15}px) rotate(10deg)`
+      if (titleRef.current)
+        titleRef.current.style.transform = `translateX(-50%) translateY(${y * 0.35}px)`
+      if (imageRef.current)
+        imageRef.current.style.transform = `translateX(-50%) translateY(${y * 0.12}px)`
+      cloudRefs.current.forEach((el, i) => {
+        if (el) el.style.transform = `translateY(${y * (0.18 + i * 0.04)}px)`
+      })
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -134,15 +149,23 @@ export default function InitiativesPage() {
 
       {/* ── Hero ── */}
       <section className="initiatives-hero" ref={heroRef}>
-        <div className="initiatives-hero__text" ref={textRef}>
-          <img src="/orange.png" alt="" className="initiatives-hero__orange" ref={orangeRef} />
-          <img src="/cap.png"    alt="" className="initiatives-hero__cap"    ref={capRef} />
-          <h1 className="initiatives-hero__big">
-            <span className="initiatives-hero__line1">Rooted in Ibiza</span>
-            <span className="initiatives-hero__line2">Built to Last</span>
-          </h1>
-          <p className="initiatives-hero__small">35+ programmes across four pillars</p>
-        </div>
+        <h1 className="initiatives-hero__title" ref={titleRef}>INITIATIVES</h1>
+        {CLOUDS.map((c, i) => (
+          <img
+            key={i}
+            src="/cloud.png"
+            alt=""
+            className="initiatives-hero__cloud"
+            ref={el => cloudRefs.current[i] = el}
+            style={{ top: c.top, left: c.left, right: c.right, width: c.width, zIndex: c.z }}
+          />
+        ))}
+        <img
+          src="/initiatives-hero.png"
+          alt="Initiatives"
+          className="initiatives-hero__image"
+          ref={imageRef}
+        />
       </section>
 
       {/* ── Stories ── */}
