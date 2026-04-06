@@ -77,6 +77,7 @@ export default function IbizaPage() {
         video="/ibiza-hero-video.mp4"
       />
 
+      <div className="ibiza-page__content">
       <section className="ibiza-section ibiza-about ibiza-section--cream">
         <div className="ibiza-about__content">
           <h2>ABOUT</h2>
@@ -121,6 +122,7 @@ export default function IbizaPage() {
         headline={<>Building A Future Where<br className="footer__mobile-br" /> <em>Purpose</em> Meets <em>Celebration</em></>}
       />
 
+      </div>
     </div>
   )
 }
