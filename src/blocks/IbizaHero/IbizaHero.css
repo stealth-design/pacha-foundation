@@ -51,7 +51,7 @@
 .ibiza-hero__heading {
   font-family: var(--font-primary);
   font-weight: 900;
-  font-size: 120px;
+  font-size: 86px;
   color: var(--color-red);
   text-transform: uppercase;
   line-height: 1;
@@ -74,15 +74,15 @@
 
 .ibiza-hero__pill--img {
   aspect-ratio: 4 / 2;
-  height: 200px;
+  height: 86px;
 }
 
 .ibiza-hero__img-star {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(10%, -30%);
-  height: 100px;
+  transform: translate(10%, -50%);
+  height: 80px;
   width: auto;
   pointer-events: none;
   z-index: 1;
@@ -93,10 +93,45 @@
   justify-content: center;
 }
 
+.ibiza-hero__mission-group {
+  display: flex;
+  align-items: center;
+  gap: 0rem;
+}
+
+.ibiza-hero__pill--bullseye {
+  height: 86px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+  rotate: -15deg;
+}
+
 /* Fill pill — stretches to take remaining row width */
 .ibiza-hero__pill--fill {
   flex: 1;
   aspect-ratio: unset;
+}
+
+.ibiza-hero__row3-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ibiza-hero__row3-cherry {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(10%, -50%);
+  height: 70px;
+  width: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ibiza-hero__pill--row3 {
+  aspect-ratio: 2.5 / 2;
+  height: 86px;
 }
 
 .ibiza-hero__pill--img img {
@@ -109,12 +144,13 @@
 /* Video pill — fills remaining width on row 2 */
 .ibiza-hero__video-wrap {
   flex: 1;
+  max-width: 550px;
   position: relative;
 }
 
 .ibiza-hero__pill--video {
   width: 100%;
-  height: 200px;
+  height: 86px;
   background: white;
 }
 
@@ -123,7 +159,7 @@
   top: 0;
   left: 0;
   transform: translate(-30%, -50%);
-  height: 100px;
+  height: 60px;
   width: auto;
   pointer-events: none;
   z-index: 1;
@@ -134,6 +170,47 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* ── Text overlays ── */
+.ibiza-hero__text-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ibiza-hero__text-cloud {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(20%, -55%);
+  height: 90px;
+  width: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ibiza-hero__text-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, -100%);
+  height: 120px;
+  width: auto;
+  pointer-events: none;
+  z-index: 0;
+  rotate: -50deg;
+}
+
+.ibiza-hero__text-wrap .ibiza-hero__heading {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  .ibiza-hero__text-cloud,
+  .ibiza-hero__text-star {
+    height: 60px;
+  }
 }
 
 /* ── Cherry ── */
@@ -211,7 +288,7 @@
   .ibiza-hero {
     height: auto;
     align-items: flex-start;
-    padding-block: clamp(6rem, 12vh, 8rem) clamp(3rem, 6vh, 5rem);
+    padding-block: clamp(8rem, 18vh, 12rem) clamp(3rem, 6vh, 5rem);
   }
 
   .ibiza-hero__inner {
@@ -242,26 +319,31 @@
     gap: 25px;
   }
 
-  .ibiza-hero__video-wrap {
-    flex: none;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  .ibiza-hero__pill--bullseye {
+    display: block;
+    height: clamp(2rem, 11vw, 4rem);
   }
 
   .ibiza-hero__pill--img {
-    height: 110px;
+    height: clamp(2rem, 11vw, 4rem);
     flex-shrink: 0;
   }
 
   .ibiza-hero__pill--video {
     flex: none;
-    width: 120px;
-    height: 260px;
-    align-self: center;
+    width: 100%;
+    height: clamp(2rem, 11vw, 4rem);
   }
 
   .ibiza-hero__cherry {
     height: 4rem;
+  }
+
+  .ibiza-hero__pill--row3 {
+    height: clamp(2rem, 11vw, 4rem);
+  }
+
+  .ibiza-hero__row3-cherry {
+    height: 60px;
   }
 }

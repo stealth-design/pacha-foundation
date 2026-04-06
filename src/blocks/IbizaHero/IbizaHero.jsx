@@ -87,9 +87,12 @@ export default function IbizaHero({
                 </div>
               </div>
             )}
-            <span className="ibiza-hero__heading">
-              {stat} {statLabel}
-            </span>
+            <div className="ibiza-hero__text-wrap">
+              {/* <img src="/cloud-group.png" alt="" className="ibiza-hero__text-cloud" /> */}
+              <span className="ibiza-hero__heading">
+                {stat} {statLabel}
+              </span>
+            </div>
             {statImage && (
               <div className="ibiza-hero__pill ibiza-hero__pill--img ibiza-hero__pill--fill">
                 <img src={statImage} alt="" />
@@ -99,7 +102,13 @@ export default function IbizaHero({
 
           {/* Row 2 — mission + video pill */}
           <div className="ibiza-hero__row ibiza-hero__row--slide-left">
-            <span className="ibiza-hero__heading">{missionText}</span>
+            <div className="ibiza-hero__mission-group">
+              <img src="/bullseye.png" alt="" className="ibiza-hero__pill--bullseye" />
+              <div className="ibiza-hero__text-wrap">
+                {/* <img src="/cap.png" alt="" className="ibiza-hero__text-star" /> */}
+                <span className="ibiza-hero__heading">{missionText}</span>
+              </div>
+            </div>
             {video && (
               <div className="ibiza-hero__video-wrap">
                 <img src="/cloud-group.png" alt="" className="ibiza-hero__video-cloud" />
@@ -113,10 +122,20 @@ export default function IbizaHero({
           {/* Row 3 — tagline */}
           <div className="ibiza-hero__row ibiza-hero__row--fade-in">
             <span className="ibiza-hero__heading">Nurturing</span>
-            <img src="/cherry.png" alt="" className="ibiza-hero__cherry ibiza-hero__cherry--desktop" />
+            <div className="ibiza-hero__row3-wrap ibiza-hero__cherry--desktop">
+              <img src="/cherry.png" alt="" className="ibiza-hero__row3-cherry" />
+              <div className="ibiza-hero__pill ibiza-hero__pill--img ibiza-hero__pill--row3">
+                <img src="/hero-pill3.png" alt="" />
+              </div>
+            </div>
             <span className="ibiza-hero__cherry-future">
               <span className="ibiza-hero__heading">Future</span>
-              <img src="/cherry.png" alt="" className="ibiza-hero__cherry ibiza-hero__cherry--mobile" />
+              <div className="ibiza-hero__row3-wrap ibiza-hero__cherry--mobile">
+                <img src="/cherry.png" alt="" className="ibiza-hero__row3-cherry" />
+                <div className="ibiza-hero__pill ibiza-hero__pill--img ibiza-hero__pill--row3">
+                  <img src="/hero-pill3.png" alt="" />
+                </div>
+              </div>
             </span>
           </div>
 
