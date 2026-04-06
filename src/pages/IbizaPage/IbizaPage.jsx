@@ -6,6 +6,7 @@ import IbizaInitiatives from '../../blocks/IbizaInitiatives/IbizaInitiatives'
 import IbizaStats from '../../blocks/IbizaStats/IbizaStats'
 import IbizaImpactCards from '../../blocks/IbizaImpactCards/IbizaImpactCards'
 import Button from '../../components/Button/Button'
+import Preloader from '../../components/Preloader/Preloader'
 import './IbizaPage.css'
 
 const PRESS_ITEMS = [
@@ -63,8 +64,11 @@ function PressItem({ item }) {
 }
 
 export default function IbizaPage() {
+  const [preloaded, setPreloaded] = useState(false)
+
   return (
     <div className="ibiza-page">
+      {!preloaded && <Preloader onDone={() => setPreloaded(true)} />}
       <Navbar basePath="/ibiza" menuVideo="/ibiza-bg-video.mp4" />
 
       <IbizaHero
