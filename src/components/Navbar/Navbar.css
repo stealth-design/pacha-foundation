@@ -202,6 +202,17 @@
 }
 
 
+/* ── White variant (over dark sections) ── */
+.navbar--white .navbar__menu,
+.navbar--white .navbar__lang-btn {
+  color: var(--color-white);
+}
+
+.navbar--white .navbar__icon-circle {
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
 /* ── Mobile ── */
 @media (max-width: 767px) {
   .navbar {

@@ -46,16 +46,14 @@ export default function IbizaHero({
       const progress    = Math.max(0, Math.min(1, raw))
       const t           = ease(progress)
 
-      // Hide only once the wrapper has fully scrolled off screen
-      if (rect.bottom <= 0) {
+      // Hide when back at top or fully scrolled off screen
+      if (progress <= 0 || rect.bottom <= 0) {
         overlay.style.opacity       = '0'
         overlay.style.pointerEvents = 'none'
         return
       }
 
-      const opacity = Math.min(1, progress * 3)
-
-      overlay.style.opacity       = String(opacity)
+      overlay.style.opacity       = '1'
       overlay.style.pointerEvents = progress >= 0.98 ? 'auto' : 'none'
       overlay.style.top           = `${lerp(nat.top,    0,  t)}px`
       overlay.style.left          = `${lerp(nat.left,   0,  t)}px`

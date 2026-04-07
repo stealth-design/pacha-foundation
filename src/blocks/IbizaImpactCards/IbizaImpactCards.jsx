@@ -72,12 +72,14 @@ export default function IbizaImpactCards() {
   const startedRef = useRef(false)
   const [started, setStarted] = useState(false)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [animDone, setAnimDone] = useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState(-1)
   const [counts, setCounts] = useState(CARDS.map(() => 0))
   const [labelsVisible, setLabelsVisible] = useState(CARDS.map(() => false))
 
   function runCard(index) {
     if (index >= CARDS.length) {
-      setTimeout(() => setActiveIndex(-1), 1200)
+      setTimeout(() => { setActiveIndex(-1); setAnimDone(true) }, 1200)
       return
     }
     setActiveIndex(index)
@@ -115,7 +117,7 @@ export default function IbizaImpactCards() {
     <section ref={sectionRef} className="iic">
       <h2 className="iic__heading">Impact</h2>
       {CARDS.map((card, i) => {
-        const isActive = started && i === activeIndex
+        const isActive = started && (i === activeIndex || (animDone && i === hoveredIndex))
         const labelVis = labelsVisible[i]
         return (
           <div
@@ -126,6 +128,8 @@ export default function IbizaImpactCards() {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             } : undefined}
+            onMouseEnter={animDone ? () => setHoveredIndex(i) : undefined}
+            onMouseLeave={animDone ? () => setHoveredIndex(-1) : undefined}
           >
             <span className="iic__icon">{card.icon}</span>
             <div className="iic__body">

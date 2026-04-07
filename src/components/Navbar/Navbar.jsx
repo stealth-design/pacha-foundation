@@ -4,7 +4,7 @@ import './Navbar.css'
 
 const engLogo = '/eng-logo.png'
 
-export default function Navbar({ basePath = '', menuVideo }) {
+export default function Navbar({ basePath = '', menuVideo, white = false }) {
   const [lang, setLang] = useState('ENG')
   const [langOpen, setLangOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -18,7 +18,7 @@ export default function Navbar({ basePath = '', menuVideo }) {
 
   return (
     <>
-      <nav className={`navbar${menuOpen ? ' navbar--menu-open' : ''}`}>
+      <nav className={`navbar${menuOpen ? ' navbar--menu-open' : ''}${white ? ' navbar--white' : ''}`}>
 
         {/* Left — Menu */}
         <button
@@ -37,7 +37,7 @@ export default function Navbar({ basePath = '', menuVideo }) {
 
         {/* Center — Logo */}
         <a href="/" className="navbar__logo-link">
-          <img src={engLogo} alt="Pacha Foundation" className="navbar__logo" />
+          <img src={white ? '/logo-white.png' : engLogo} alt="Pacha Foundation" className="navbar__logo" />
         </a>
 
         {/* Right — Language switcher */}

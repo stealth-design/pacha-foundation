@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import IbizaHero from '../../blocks/IbizaHero/IbizaHero'
@@ -63,9 +63,25 @@ function PressItem({ item }) {
 }
 
 export default function IbizaPage() {
+  const initiativesRef = useRef(null)
+  const [navWhite, setNavWhite] = useState(false)
+
+  useEffect(() => {
+    function onScroll() {
+      const el = initiativesRef.current
+      if (!el) return
+      const { top, bottom } = el.getBoundingClientRect()
+      const navHeight = 88
+      setNavWhite(top <= navHeight && bottom > navHeight)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <div className="ibiza-page">
-      <Navbar basePath="/ibiza" menuVideo="/ibiza-bg-video.mp4" />
+      <Navbar basePath="/ibiza" menuVideo="/ibiza-bg-video.mp4" white={navWhite} />
 
       <IbizaHero
         stat="35+"
@@ -98,7 +114,7 @@ export default function IbizaPage() {
 
       <IbizaImpactCards />
 
-      <IbizaInitiatives />
+      <div ref={initiativesRef}><IbizaInitiatives /></div>
 
       <section className="ibiza-press">
         <div className="ibiza-press__header">
