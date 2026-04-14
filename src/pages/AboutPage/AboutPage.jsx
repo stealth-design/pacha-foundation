@@ -1,59 +1,11 @@
-import { useEffect, useRef, useState } from 'react' // useRef used in LetterHero
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import './AboutPage.css'
 
-const LETTER_TEXT = `Dear Pacha Family,
-
-In 2025, The Pacha Foundation is driving over 35 initiatives with a 430% funding boost, deepening our impact across Ibiza. We're expanding care for at-risk families, leading marine conservation and smart recycling efforts, and supporting the Balearic Islands' top resilience forums.
-
-We're also celebrating Ibiza’s heritage through music events and artist support to sustain and enrich the island’s Pityusic legacy, while energising the community with international sports and youth athletic programmes.
-
-As President, I’m inspired by our shared vision of solidarity and excellence. The Foundation’s success is rooted in Ibiza’s enduring spirit, and together, we’re building a stronger, more resilient future. 
-
-I am proud of what we have built together, and I remain committed to ensuring that The Pacha Foundation continues to grow in both reach and ambition. The best is yet to come.
-
-
-Kabir Mulchandani
-President, The Pacha Foundation
-Chairman, The Pacha Group`
-
-function LetterHero() {
-  const [displayed, setDisplayed] = useState('')
-  const [done, setDone] = useState(false)
-  const indexRef = useRef(0)
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      indexRef.current += 1
-      setDisplayed(LETTER_TEXT.slice(0, indexRef.current))
-      if (indexRef.current >= LETTER_TEXT.length) {
-        clearInterval(id)
-        setDone(true)
-      }
-    }, 18)
-    return () => clearInterval(id)
-  }, [])
-
-  return (
-    <section className="ibiza-section ibiza-about about-letter-section">
-      <div className="ibiza-about__content">
-        <h2 className="about-letter__heading">A LETTER FROM THE CHAIRMAN</h2>
-        <div className="about-letter__body">
-          {/* invisible full text reserves space so nothing shifts */}
-          <span className="about-letter__spacer" aria-hidden="true">{LETTER_TEXT}</span>
-          <span className="about-letter__visible">
-            {displayed}
-            {!done && <span className="about-letter__cursor" aria-hidden="true">|</span>}
-          </span>
-        </div>
-      </div>
-      <div className="ibiza-about__image">
-        <img src="/chairman.png" alt="Kabir Mulchandani, President" />
-      </div>
-    </section>
-  )
-}
+/* LetterHero commented out
+const LETTER_TEXT = `...`
+function LetterHero() { ... }
+*/
 
 const BOARD = [
   { name: 'Kabir Mulchandani', position: 'President', image: '/km1.png', imageHover: '/km2.png' },
@@ -90,7 +42,7 @@ export default function AboutPage() {
       <Navbar basePath="/ibiza" menuVideo="/ibiza-bg-video.mp4" />
 
       {/* ── Chairman Letter Hero ── */}
-      <LetterHero />
+      {/* <LetterHero /> */}
 
       {/* ── Mission ── */}
       {/* <section className="ibiza-section about-mission ibiza-section--cream">
